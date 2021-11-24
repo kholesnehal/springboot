@@ -11,7 +11,9 @@ public class Restaurant {
         this.name = name;
         this.ownerName = authorName;
     }
-    public Restaurant(){}
+    public Restaurant(){
+
+    }
 
     public int getId() {
         return id;
