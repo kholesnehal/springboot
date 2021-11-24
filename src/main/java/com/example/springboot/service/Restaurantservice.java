@@ -14,6 +14,7 @@ public class Restaurantservice {
     static {
 restaurantList.add(new Restaurant(101,"Kundan","Mr.Bhatiya"));
 restaurantList.add(new Restaurant(102,"Sai","Mr.Bora"));
+restaurantList.add(new Restaurant(103,"Royal","Mr.Choudhari"));
 
     }
     public List<Restaurant>getAllRestaurant()

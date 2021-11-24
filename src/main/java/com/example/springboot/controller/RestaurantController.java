@@ -63,7 +63,7 @@ public class RestaurantController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-    @PutMapping("rest/{id}")
+    @PutMapping("re/{id}")
     public ResponseEntity<Restaurant> updateResturant(@RequestBody Restaurant restaurant,@PathVariable int id) {
         try {
             this.restaurantservice.updateRestaurant(restaurant, id);
