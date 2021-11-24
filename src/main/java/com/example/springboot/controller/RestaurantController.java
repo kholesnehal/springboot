@@ -11,11 +11,13 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping("/restaurant")
 public class RestaurantController {
     @Autowired
     private Restaurantservice restaurantservice;
 
-    @GetMapping("/restaurant")
+
+    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Restaurant>> getAllRestaurant() {
         List<Restaurant>list=restaurantservice.getAllRestaurant();
         if (list.size()<=0)
@@ -25,7 +27,8 @@ public class RestaurantController {
        return ResponseEntity.of(Optional.of(list));
     }
 
-    @GetMapping("/restaurant/{id}")
+
+    @RequestMapping(value = "/restaurant/{id}",method = RequestMethod.GET)
     public ResponseEntity<Restaurant> getRestaurantById(@PathVariable int id) {
        Restaurant restaurant=restaurantservice.getRestaurantById(id);
        if(restaurant==null)
@@ -36,7 +39,8 @@ public class RestaurantController {
 
     }
 
-    @PostMapping("/restaurants")
+
+    @RequestMapping(value = "/restaurants",method = RequestMethod.POST)
     public ResponseEntity<Restaurant> addRestaurant(@RequestBody Restaurant rest) {
         Restaurant re=null;
         try {
@@ -51,7 +55,8 @@ public class RestaurantController {
 
     }
 
-    @DeleteMapping("restaurant/{restaurantId}")
+
+    @RequestMapping(value = "/restaurant/{restaurantId}",method=RequestMethod.DELETE)
     public ResponseEntity<?> deleteRestaurant(@PathVariable int id) {
         try {
             this.restaurantservice.deleteRestaurant(id);
@@ -63,7 +68,8 @@ public class RestaurantController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-    @PutMapping("re/{id}")
+
+    @RequestMapping(value = "/rest/{id}",method = RequestMethod.PUT)
     public ResponseEntity<Restaurant> updateResturant(@RequestBody Restaurant restaurant,@PathVariable int id) {
         try {
             this.restaurantservice.updateRestaurant(restaurant, id);
