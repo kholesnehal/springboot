@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.lang.reflect.Method;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,7 +18,7 @@ public class RestaurantController {
     private Restaurantservice restaurantservice;
 
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(method=RequestMethod.GET)
     public ResponseEntity<List<Restaurant>> getAllRestaurant()
     {
         List<Restaurant>list=restaurantservice.getAllRestaurant();
