@@ -18,7 +18,8 @@ public class RestaurantController {
 
 
     @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<List<Restaurant>> getAllRestaurant() {
+    public ResponseEntity<List<Restaurant>> getAllRestaurant()
+    {
         List<Restaurant>list=restaurantservice.getAllRestaurant();
         if (list.size()<=0)
         {
@@ -29,7 +30,8 @@ public class RestaurantController {
 
 
     @RequestMapping(value = "/restaurant/{id}",method = RequestMethod.GET)
-    public ResponseEntity<Restaurant> getRestaurantById(@PathVariable int id) {
+    public ResponseEntity<Restaurant> getRestaurantById(@PathVariable int id)
+    {
        Restaurant restaurant=restaurantservice.getRestaurantById(id);
        if(restaurant==null)
        {
@@ -41,7 +43,8 @@ public class RestaurantController {
 
 
     @RequestMapping(value = "/restaurants",method = RequestMethod.POST)
-    public ResponseEntity<Restaurant> addRestaurant(@RequestBody Restaurant rest) {
+    public ResponseEntity<Restaurant> addRestaurant(@RequestBody Restaurant rest)
+    {
         Restaurant re=null;
         try {
             re = this.restaurantservice.addRestaurant(rest);
@@ -57,7 +60,8 @@ public class RestaurantController {
 
 
     @RequestMapping(value = "/restaurant/{restaurantId}",method=RequestMethod.DELETE)
-    public ResponseEntity<?> deleteRestaurant(@PathVariable int id) {
+    public ResponseEntity<?> deleteRestaurant(@PathVariable int id)
+    {
         try {
             this.restaurantservice.deleteRestaurant(id);
             return ResponseEntity.ok().build();
